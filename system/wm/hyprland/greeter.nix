@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   session = "${pkgs.hyprland}/bin/Hyprland";
 in
 {

@@ -8,7 +8,7 @@
     ];
 
   nix = {
-    package = pkgs.nixVersions.stable;
+    package = pkgs.lix;
     settings.trusted-users = [
       "@wheel"
     ];
