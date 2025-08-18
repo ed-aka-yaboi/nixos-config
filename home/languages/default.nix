@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./cpp.nix
-    ./elixir.nix
+    # ./elixir.nix
     ./erlang.nix
     ./go.nix
     ./rust.nix
@@ -10,9 +10,7 @@
   ];
 
   home.packages = with pkgs; [
-    idris2
-    idris2Packages.idris2Lsp
-    chez
+    sbcl
     rabbitmq-c
     flatbuffers
     typescript

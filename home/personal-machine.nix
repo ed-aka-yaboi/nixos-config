@@ -19,6 +19,7 @@
       quickemu # ez vm setup
       rofi-bluetooth
       obsidian
+      libreoffice-qt6-fresh
       steam
       vhs
       xsel

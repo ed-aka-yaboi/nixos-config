@@ -49,7 +49,6 @@ in
     uv
     wget
     wireshark
-    zathura
     zip
   ];
 
@@ -58,6 +57,16 @@ in
   };
 
   programs = {
+    zathura = {
+      enable = true;
+      options = {
+        "zoom-step" = 20;
+        "scroll-step" = 80;
+
+        "selection-clipboard" = "clipboard";
+        "incremental-search" = "true";
+      };
+    };
     command-not-found.enable = false;
     nix-index = {
       enable = true;

@@ -48,14 +48,14 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  i18n.defaultLocale = "en_GB.utf8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   services = {
     dbus.enable = true;
     printing.enable = true;
     udisks2.enable = true;
     fstrim.enable = true;
-    udev.extraRules = "SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"[0-10]\", RUN+=\"${pkgs.dunst}/bin/dunstify \"WARNING LOW BATTERY\"\n";
+    udev.enable = true;
     emacs.enable = true;
   };
 
