@@ -77,6 +77,7 @@ in
     };
     git = {
       enable = true;
+      lfs.enable = true;
       aliases = {
         s = "status";
         d = "diff";

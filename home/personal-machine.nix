@@ -15,17 +15,18 @@
       brightnessctl
       chromium
       firefox
+      hugo
+      libreoffice-qt6-fresh
+      obsidian
       pamixer
       quickemu # ez vm setup
       rofi-bluetooth
-      obsidian
-      libreoffice-qt6-fresh
+      slack
       steam
       vhs
-      xsel
       xournalpp
+      xsel
       zoom-us
     ];
-
   };
 }
