@@ -18,12 +18,12 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     disko.url = "github:nix-community/disko";
-
+    bqnlsp.url = "sourcehut:~detegr/bqnlsp";
     stylix.url = "github:danth/stylix";
   };
 
   outputs =
-    { nixpkgs, home-manager, nixos-hardware, stylix, disko, ... }:
+    { nixpkgs, home-manager, nixos-hardware, stylix, disko, bqnlsp, ... }:
     let
       systemConfigs = import ./systemConfigs.nix;
       options = import ./options.nix;
@@ -72,7 +72,7 @@
                   };
 
                   home-manager.extraSpecialArgs = {
-                    inherit nixos-hardware;
+                    inherit nixos-hardware bqnlsp;
                     inherit (stylix.homeManagerModules) stylix;
                   };
                 }

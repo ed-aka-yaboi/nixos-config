@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, bqnlsp, ... }: {
   imports = [
     ./cpp.nix
     # ./elixir.nix
@@ -10,6 +10,8 @@
   ];
 
   home.packages = with pkgs; [
+    (bqnlsp.defaultPackage.${pkgs.system})
+    cbqn
     sbcl
     rabbitmq-c
     flatbuffers
