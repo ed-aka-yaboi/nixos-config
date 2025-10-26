@@ -10,17 +10,27 @@ args = ["--enable-config"]
 command = "bqnlsp"
 
 [[language]]
-name = "bqn"
-file-types = ["bqn"]
 comment-token = "#"
+file-types = ["bqn"]
 indent = { tab-width = 2, unit = "  " }
-shebangs = ["bqn", "cbqn"]
-roots = []
 injection-regex = "bqn"
-scope = "scope.bqn"
-language-servers = ["bqnlsp"]
 language-id = "bqn"
+language-servers = ["bqnlsp"]
+name = "bqn"
+roots = []
+scope = "scope.bqn"
+shebangs = ["bqn", "cbqn"]
+[[grammar]]
+name = "bqn"
+source.git = "https://github.com/shnarazk/tree-sitter-bqn"
+source.rev = "a56f2d20ee42d39afe67730eeb13c2f41e1b0877"
+
 [language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+"'" = "'"
+'"' = '"'
 '⟨' = '⟩'
 
 [[language]]
