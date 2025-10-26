@@ -6,6 +6,23 @@ args = ["--stdio"]
 command = "clangd"
 args = ["--enable-config"]
 
+[language-server.bqnlsp]
+command = "bqnlsp"
+
+[[language]]
+name = "bqn"
+file-types = ["bqn"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+shebangs = ["bqn", "cbqn"]
+roots = []
+injection-regex = "bqn"
+scope = "scope.bqn"
+language-servers = ["bqnlsp"]
+language-id = "bqn"
+[language.auto-pairs]
+'⟨' = '⟩'
+
 [[language]]
 name = "erlang"
 roots = ["rebar.config", "erlang.mk", ".git"]
