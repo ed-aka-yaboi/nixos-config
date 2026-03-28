@@ -14,7 +14,7 @@
   ];
 
   monitor = [
-    "eDP-1, 3840x2160@60, 0x0, 1.00"
+    "eDP-1, preferred, auto, 1.00"
   ];
 
   input = {
