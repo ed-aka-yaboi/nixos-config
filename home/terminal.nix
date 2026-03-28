@@ -79,23 +79,26 @@ in
     git = {
       enable = true;
       lfs.enable = true;
-      signing = { };
-      aliases = {
-        s = "status";
-        d = "diff";
+      signing = {
+        format = "openpgp";
       };
-      delta = {
-        enable = true;
-        options = { navigate = true; light = false; };
-      };
-      extraConfig = {
+      settings = {
         user.email = lib.mkIf (config ? email) config.email;
         add.interactive.useBuiltin = false;
         merge.conflictstyle = "diff3";
         diff.tool = "delta";
         diff.colorMoved = "default";
         init.defaultBranch = "master";
+        alias = {
+          s = "status";
+          d = "diff";
+        };
       };
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = { navigate = true; light = false; };
     };
     gpg = {
       enable = true;
@@ -174,4 +177,3 @@ in
 
   services = OS-specific-services;
 }
-

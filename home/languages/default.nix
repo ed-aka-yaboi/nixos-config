@@ -10,7 +10,7 @@
   ];
 
   home.packages = with pkgs; [
-    (bqnlsp.defaultPackage.${pkgs.system})
+    (bqnlsp.defaultPackage.${pkgs.stdenv.hostPlatform.system})
     chez
     chez-mit
     akku
