@@ -51,7 +51,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = import ./settings.nix;
+    systemd.enable = false;
   };
 
 }
-

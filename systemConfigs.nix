@@ -33,6 +33,7 @@
 
           {
             hardware.nvidia = {
+              open = false;
               prime.offload.enable = false;
               modesetting.enable = true;
               powerManagement = {

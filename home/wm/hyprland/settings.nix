@@ -4,8 +4,8 @@
   "$menu" = "wofi --show drun";
 
   exec-once = [
-    "waybar"
-    "hypridle"
+    "uwsm app -- waybar"
+    "uwsm app -- hypridle"
   ];
 
   env = [
@@ -84,10 +84,10 @@
     new_status = "master";
   };
 
-  gestures = {
-    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    workspace_swipe = true;
-  };
+  # Hyprland 0.51+ replaced gestures:workspace_swipe with per-gesture rules.
+  gesture = [
+    "3, horizontal, workspace"
+  ];
 
   misc = {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -96,29 +96,24 @@
     disable_hyprland_logo = true;
   };
 
-  # Example windowrule v1
-  # windowrule = float, ^(kitty)$
-  # Example windowrule v2
-  # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-  # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-  windowrulev2 = [
-    "suppressevent maximize, class:.* " # You'll probably like this.
+  # Hyprland 0.53+ removed windowrulev2 in favor of the new windowrule syntax.
+  windowrule = [
+    "suppress_event maximize, match:class .*"
   ];
-
 
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
   bind = [
-    "$mainMod, RETURN, exec, $terminal"
+    "$mainMod, RETURN, exec, uwsm app -- $terminal"
     "$mainMod, C, killactive,"
 
-    "$mainMod, Q, exit,"
+    "$mainMod, Q, exec, uwsm stop"
     "$mainMod_SHIFT, F, togglefloating,"
     "$mainMod, F, fullscreen, 1"
 
-    "$mainMod, D, exec, $menu"
+    "$mainMod, D, exec, uwsm app -- $menu"
     "$mainMod, T, togglesplit, " # dwindle
 
-    "$mainMod, ESCAPE, exec, powermenu" # dwindle
+    "$mainMod, ESCAPE, exec, uwsm app -- powermenu" # dwindle
 
     # Move focus with mainMod + arrow keys
     "$mainMod, left, movefocus, l"
@@ -172,7 +167,7 @@
     ", XF86AudioLowerVolume, exec, pamixer --decrease 10"
     ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
     ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-    ", XF86Search, exec, launchpad"
+    ", XF86Search, exec, uwsm app -- launchpad"
 
   ];
 
