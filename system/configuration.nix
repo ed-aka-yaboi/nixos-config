@@ -35,7 +35,6 @@
   };
 
   networking = {
-    wireless.enable = false; # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;
     nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
@@ -150,8 +149,22 @@
     libunwind
     libusb1
     libuuid
+    libX11
+    libxcb
+    libXcomposite
+    libXcursor
+    libXdamage
+    libXext
+    libXfixes
+    libXi
     libxkbcommon
+    libxkbfile
     libxml2
+    libXrandr
+    libXrender
+    libXScrnSaver
+    libxshmfence
+    libXtst
     mesa
     nspr
     nss
@@ -162,20 +175,6 @@
     stdenv.cc.cc.lib
     systemd
     vulkan-loader
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libxkbfile
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXScrnSaver
-    xorg.libxshmfence
-    xorg.libXtst
     zlib
   ];
 

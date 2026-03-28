@@ -28,7 +28,7 @@ in
 
   home.packages = with pkgs;
     [
-      libsForQt5.dolphin
+      kdePackages.dolphin
       qt6.qtwayland
       libnotify
       kdePackages.polkit-kde-agent-1
@@ -54,5 +54,4 @@ in
   };
 
 }
-
 

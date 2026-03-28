@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     erlang
     erlfmt
-    erlang-ls
+    erlang-language-platform
     rebar3
   ];
 }

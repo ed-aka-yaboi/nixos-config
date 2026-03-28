@@ -79,6 +79,7 @@ in
     git = {
       enable = true;
       lfs.enable = true;
+      signing = { };
       aliases = {
         s = "status";
         d = "diff";

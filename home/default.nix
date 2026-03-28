@@ -22,6 +22,10 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
+  # Keep legacy behavior for GTK4 theme default
+  # Silence HM warning by mapping GTK4 theme to GTK theme
+  gtk.gtk4.theme = config.gtk.theme;
+
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
