@@ -23,7 +23,6 @@
       rofi-bluetooth
       slack
       steam
-      vhs
       xournalpp
       xsel
       zoom-us
