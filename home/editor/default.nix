@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, tree-sitter-bqn, ... }:
 {
   home.packages = with pkgs; [
     nil # nix lsp
@@ -120,4 +120,9 @@
   xdg.configFile."helix/languages.toml".source = ./languages.toml;
 
   xdg.configFile."helix/themes/nix-theme.toml".text = import ./theme.nix { inherit config; };
+
+  xdg.configFile."helix/runtime/queries/bqn" = {
+    source = "${tree-sitter-bqn.outPath}/queries";
+    recursive = true;
+  };
 }

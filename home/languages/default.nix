@@ -11,8 +11,13 @@
 
   home.packages = with pkgs; [
     (bqnlsp.defaultPackage.${pkgs.system})
+    chez
+    chez-mit
+    akku
+    bqn386
     cbqn
     sbcl
+    spin
     rabbitmq-c
     flatbuffers
     typescript

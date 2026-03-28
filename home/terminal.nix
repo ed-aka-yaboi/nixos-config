@@ -21,6 +21,7 @@ in
 
   home.packages = with pkgs; [
     bat
+    codex
     comma
     dig
     direnv
