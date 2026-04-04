@@ -21,6 +21,7 @@ in
 
   home.packages = with pkgs; [
     bat
+    claude-code
     codex
     comma
     dig
