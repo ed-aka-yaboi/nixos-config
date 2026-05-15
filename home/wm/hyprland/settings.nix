@@ -1,6 +1,6 @@
 {
   "$mainMod" = "SUPER";
-  "$terminal" = "kitty";
+  "$terminal" = "ghostty";
   "$menu" = "wofi --show drun";
 
   exec-once = [

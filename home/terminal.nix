@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  generated = import ./_sources/generated.nix { inherit (pkgs) fetchurl fetchgit fetchFromGitHub; };
   OS-specific-services = with pkgs.stdenv;
     if isLinux then {
       gpg-agent = {
@@ -14,7 +13,7 @@ in
 {
   imports = [
     ./starship_settings.nix
-    ./kitty.nix
+    ./ghostty.nix
     ./editor
     ./languages
   ];
@@ -52,10 +51,11 @@ in
     wget
     wireshark
     zip
+    blesh
   ];
 
   home.sessionVariables = {
-    "SHELL" = "fish";
+    "SHELL" = "bash";
   };
 
   programs = {
@@ -72,7 +72,7 @@ in
     command-not-found.enable = false;
     nix-index = {
       enable = true;
-      enableFishIntegration = true;
+      enableBashIntegration = true;
     };
     starship = {
       enable = true;
@@ -110,6 +110,7 @@ in
     };
     fzf = {
       enable = true;
+      enableBashIntegration = true;
       tmux.enableShellIntegration = true;
     };
     skim = {
@@ -117,11 +118,11 @@ in
     };
     eza = {
       enable = true;
-      enableFishIntegration = true;
+      enableBashIntegration = true;
       icons = "auto";
       git = true;
     };
-    fish = {
+    bash = {
       enable = true;
       shellAliases = {
         bm = "bashmount";
@@ -129,27 +130,20 @@ in
         lg = "lazygit";
         e = "$EDITOR";
       };
-      functions = {
-        fish_user_key_bindings = ''
-          	  bind --mode default ' ' execute
-        '';
-        fish_greeting = ''
-          	set options "(⚈∇⚈ )" "(✿╹◡╹)" "/ᐠ. ᴗ.ᐟ\\" "/ᐠ.ꞈ.ᐟ\\" "/ᐠ_ ꞈ _ᐟ\\"; echo (shuf -n 1 -e $options)
-        '';
+      initExtra = ''
+        source ${pkgs.blesh}/share/blesh/ble.sh
+        bleopt prompt_ruler=
 
-        mkPython = ''
+_greetings=("(⚈∇⚈ )" "(✿╹◡╹)" "/ᐠ. ᴗ.ᐟ\\" "/ᐠ.ꞈ.ᐟ\\" "/ᐠ_ ꞈ _ᐟ\\")
+        echo "''${_greetings[$RANDOM % ''${#_greetings[@]}]}"
+        unset _greetings
+
+        [[ -f ${pkgs.grc}/etc/grc.sh ]] && source ${pkgs.grc}/etc/grc.sh
+
+        mkPython() {
           cat "${./templates/python_shell.template}" > shell.nix
           echo "use nix" > .envrc
-        '';
-      };
-      plugins = with generated; [
-        { name = getopts.pname; src = getopts.src; }
-        { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-        { name = "bass"; src = pkgs.fishPlugins.bass.src; }
-        { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
-      ];
-      interactiveShellInit = ''
-        fish_vi_key_bindings
+        }
       '';
     };
     zoxide.enable = true;

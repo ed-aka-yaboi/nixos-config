@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   programs.starship.settings = {
+    add_newline = false;
     bun.format = "via [$symbol]($style)";
     buf.format = "via [$symbol]($style)";
     cmake.format = "via [$symbol]($style)";

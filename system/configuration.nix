@@ -91,7 +91,7 @@
   users.users = {
     "${config.user}" = {
       isNormalUser = true;
-      shell = pkgs.fish;
+      shell = pkgs.bash;
       description = "${config.user}";
       initialPassword = "a";
       extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" ];
@@ -120,7 +120,6 @@
     # running binaries on nix
     nix-ld.enable = true;
     steam.enable = true;
-    fish.enable = true;
     wireshark.enable = true;
   };
 
