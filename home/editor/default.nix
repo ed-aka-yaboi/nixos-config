@@ -1,5 +1,10 @@
 { config, pkgs, tree-sitter-bqn, ... }:
 {
+
+  imports = [
+    ./emacs.nix
+  ];
+
   home.packages = with pkgs; [
     nil # nix lsp
     nixpkgs-fmt # nix formatter
