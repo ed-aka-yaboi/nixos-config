@@ -50,7 +50,15 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = import ./settings.nix;
+    extraConfig = ''
+      windowrule {
+        name = suppress-maximize-events
+        match:class = .*
+        suppress_event = maximize
+      }
+    '';
     systemd.enable = false;
   };
 

@@ -23,7 +23,18 @@
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableAllFirmware = true;
-  hardware.firmware = with pkgs; [ wireless-regdb ];
+  hardware.firmware = with pkgs; [
+    wireless-regdb
+    # linux-firmware 20260910's Rembrandt DMCUB (0x0400004A) is rejected by the PSP
+    # ("failed to load ucode DMCUB"), leaving a black screen. Shadow just that blob
+    # with the 20260309 one (0x04000047); hiPrio beats linux-firmware in the firmware env.
+    (lib.hiPrio (runCommand "yellow-carp-dmcub-20260309" { } ''
+      install -Dm444 ${fetchurl {
+        url = "https://gitlab.com/kernel-firmware/linux-firmware/-/raw/20260309/amdgpu/yellow_carp_dmcub.bin";
+        hash = "sha256-8RUS+pSnbiy+iqHva+/iZas62ZvulETd2vPwkPHfaMA=";
+      }} $out/lib/firmware/amdgpu/yellow_carp_dmcub.bin
+    ''))
+  ];
   hardware.trackpoint = {
     enable = true;
     sensitivity = 45;

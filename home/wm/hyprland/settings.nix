@@ -19,10 +19,10 @@
 
   input = {
     kb_layout = "us";
-    kb_variant = " ";
-    kb_model = " ";
+    kb_variant = "";
+    kb_model = "";
     kb_options = "caps:escape";
-    kb_rules = " ";
+    kb_rules = "";
 
     follow_mouse = 1;
 
@@ -75,7 +75,6 @@
 
   dwindle = {
     # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true; # you probably want this
   };
 
@@ -84,22 +83,15 @@
     new_status = "master";
   };
 
-  # Hyprland 0.51+ replaced gestures:workspace_swipe with per-gesture rules.
   gesture = [
-    "3, horizontal, workspace"
+    "3, horizontal, workspace,"
   ];
 
   misc = {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    vfr = true;
     disable_splash_rendering = true;
     disable_hyprland_logo = true;
   };
-
-  # Hyprland 0.53+ removed windowrulev2 in favor of the new windowrule syntax.
-  windowrule = [
-    "suppress_event maximize, match:class .*"
-  ];
 
   # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
   bind = [
@@ -107,11 +99,11 @@
     "$mainMod, C, killactive,"
 
     "$mainMod, Q, exec, uwsm stop"
-    "$mainMod_SHIFT, F, togglefloating,"
+    "$mainMod SHIFT, F, togglefloating,"
     "$mainMod, F, fullscreen, 1"
 
     "$mainMod, D, exec, uwsm app -- $menu"
-    "$mainMod, T, togglesplit, " # dwindle
+    "$mainMod, T, layoutmsg, togglesplit" # dwindle
 
     "$mainMod, ESCAPE, exec, uwsm app -- powermenu" # dwindle
 
@@ -121,10 +113,10 @@
     "$mainMod, up, movefocus, u"
     "$mainMod, down, movefocus, d"
 
-    "$mainMod_SHIFT, left, movewindow, l"
-    "$mainMod_SHIFT, right, movewindow, r"
-    "$mainMod_SHIFT, up, movewindow, u"
-    "$mainMod_SHIFT, down, movewindow, d"
+    "$mainMod SHIFT, left, movewindow, l"
+    "$mainMod SHIFT, right, movewindow, r"
+    "$mainMod SHIFT, up, movewindow, u"
+    "$mainMod SHIFT, down, movewindow, d"
 
     # Switch workspaces with mainMod + [0-9]
     "$mainMod, 1, workspace, 1"
@@ -158,7 +150,7 @@
   bindm = [
     # Move/resize windows with mainMod + LMB/RMB and dragging
     "$mainMod, mouse:272, movewindow"
-    "$mainMod_CTRL, mouse:272, resizewindow"
+    "$mainMod CTRL, mouse:272, resizewindow"
   ];
 
   # media keys

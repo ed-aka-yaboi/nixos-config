@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  OS-specific-services = with pkgs.stdenv;
+  OS-specific-services = with pkgs.stdenv.hostPlatform;
     if isLinux then {
       gpg-agent = {
         enable = true;

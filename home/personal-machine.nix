@@ -16,7 +16,7 @@
       chromium
       firefox
       hugo
-      libreoffice-qt6-fresh
+      libreoffice-qt-stable
       obsidian
       pamixer
       quickemu # ez vm setup

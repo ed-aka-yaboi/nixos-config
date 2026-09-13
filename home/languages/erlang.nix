@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    erlang
+    beamPackages.erlang
     erlfmt
     erlang-language-platform
     rebar3

@@ -21,7 +21,7 @@
     rabbitmq-c
     flatbuffers
     typescript
-    nodePackages.prettier
+    prettier
     pyright
   ];
 }

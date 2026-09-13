@@ -22,7 +22,7 @@
     meson.format = "via [$symbol]($style)";
     nim.format = "via [$symbol]($style)";
     nodejs.format = "via [$symbol]($style)";
-    ocaml.format = "via [$symbol(\($switch_indicator$switch_name\) )]($style)";
+    ocaml.format = "via [$symbol($switch_indicator$switch_name) ]($style)";
     perl.format = "via [$symbol]($style)";
     php.format = "via [$symbol]($style)";
     pulumi.format = "via [$symbol$stack]($style)";

@@ -18,11 +18,13 @@
       virtualisation = {
         memorySize = 16736;
         cores = 8;
+        useNixStoreImage = true;
+        writableStore = true;
       };
 
       virtualisation.qemu.options = [
         "-device virtio-vga-gl"
-        "-display sdl,gl=on,show-cursor=off"
+        "-display gtk,gl=on"
         "-audio pa,model=hda"
       ];
 
@@ -32,7 +34,6 @@
 
       services.interception-tools.enable = lib.mkForce false;
 
-      containers.ociSeccompBpfHook.enable = true;
     };
   };
 

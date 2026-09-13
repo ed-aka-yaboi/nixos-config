@@ -30,7 +30,7 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_12; # linuxPackages_latest is 7.2 which has amdgpu black screen regression
     tmp.useTmpfs = true;
   };
 

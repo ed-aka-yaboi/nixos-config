@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
-  node_pkgs = with pkgs.nodePackages; [
-    svelte-check
+  node_pkgs = with pkgs; [
     svelte-check
     typescript-language-server
   ];
