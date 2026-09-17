@@ -33,14 +33,13 @@
           "tooltip-format" = "󰃭 {:%Y-%m-%d}";
         };
         "network" = {
-          "interface" = "wlp2s0";
           "format" = "{ifname}";
           "format-wifi" = " {essid} ({signalStrength}%)";
-          "format-ethernet" = " {ifname}";
+          "format-ethernet" = "󰈀 {ifname}";
           "format-disconnected" = "󰖪"; # An empty format will hide the module.
           "tooltip-format" = "{ifname}";
           "tooltip-format-wifi" = "  {essid} ({signalStrength}%)";
-          "tooltip-format-ethernet" = " {ifname}";
+          "tooltip-format-ethernet" = "󰈀 {ifname}";
           "tooltip-format-disconnected" = "Disconnected";
           "max-length" = 50;
           "on-click" = "nm-connection-editor";
